@@ -18,6 +18,7 @@ FOR LOGIN [admin_covid_report]
 GO
 
 ALTER ROLE [db_datawriter] ADD MEMBER [admin_covid_report]
+ALTER ROLE [db_datareader] ADD MEMBER [admin_covid_report]
 GO
 
 GRANT
