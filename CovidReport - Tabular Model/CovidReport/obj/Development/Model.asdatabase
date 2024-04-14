@@ -1,0 +1,289 @@
+{
+  "name": "CovidReport",
+  "compatibilityLevel": 1500,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/LAPTOP-SL0928KI;CovidReport",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "localhost",
+            "database": "CovidReport"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "UsernamePassword",
+          "Username": "admin_covid_report",
+          "EncryptConnection": false
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "CasesAndDeaths",
+        "columns": [
+          {
+            "name": "country",
+            "dataType": "string",
+            "sourceColumn": "country"
+          },
+          {
+            "name": "country_code_3_digit",
+            "dataType": "string",
+            "sourceColumn": "country_code_3_digit"
+          },
+          {
+            "name": "country_code_2_digit",
+            "dataType": "string",
+            "sourceColumn": "country_code_2_digit"
+          },
+          {
+            "name": "population",
+            "dataType": "int64",
+            "sourceColumn": "population"
+          },
+          {
+            "name": "cases_count",
+            "dataType": "int64",
+            "sourceColumn": "cases_count"
+          },
+          {
+            "name": "deaths_count",
+            "dataType": "int64",
+            "sourceColumn": "deaths_count"
+          },
+          {
+            "name": "reported_date",
+            "dataType": "dateTime",
+            "sourceColumn": "reported_date"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/LAPTOP-SL0928KI;CovidReport\",",
+                "    dbo_CasesAndDeaths = Source{[Schema=\"dbo\",Item=\"CasesAndDeaths\"]}[Data]",
+                "in",
+                "    dbo_CasesAndDeaths"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DailyHospitalAdmissions",
+        "columns": [
+          {
+            "name": "country",
+            "dataType": "string",
+            "sourceColumn": "country"
+          },
+          {
+            "name": "country_code_2_digit",
+            "dataType": "string",
+            "sourceColumn": "country_code_2_digit"
+          },
+          {
+            "name": "country_code_3_digit",
+            "dataType": "string",
+            "sourceColumn": "country_code_3_digit"
+          },
+          {
+            "name": "reported_date",
+            "dataType": "dateTime",
+            "sourceColumn": "reported_date"
+          },
+          {
+            "name": "population",
+            "dataType": "int64",
+            "sourceColumn": "population"
+          },
+          {
+            "name": "source",
+            "dataType": "string",
+            "sourceColumn": "source"
+          },
+          {
+            "name": "icu_occupancy_count",
+            "dataType": "double",
+            "sourceColumn": "icu_occupancy_count"
+          },
+          {
+            "name": "daily_hospital_occupancy",
+            "dataType": "double",
+            "sourceColumn": "daily_hospital_occupancy"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/LAPTOP-SL0928KI;CovidReport\",",
+                "    dbo_DailyHospitalAdmissions = Source{[Schema=\"dbo\",Item=\"DailyHospitalAdmissions\"]}[Data]",
+                "in",
+                "    dbo_DailyHospitalAdmissions"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Population",
+        "columns": [
+          {
+            "name": "country_code_2_digit",
+            "dataType": "string",
+            "sourceColumn": "country_code_2_digit"
+          },
+          {
+            "name": "country_code_3_digit",
+            "dataType": "string",
+            "sourceColumn": "country_code_3_digit"
+          },
+          {
+            "name": "population",
+            "dataType": "int64",
+            "sourceColumn": "population"
+          },
+          {
+            "name": "age_group_0_14",
+            "dataType": "double",
+            "sourceColumn": "age_group_0_14"
+          },
+          {
+            "name": "age_group_15_24",
+            "dataType": "double",
+            "sourceColumn": "age_group_15_24"
+          },
+          {
+            "name": "age_group_25_49",
+            "dataType": "double",
+            "sourceColumn": "age_group_25_49"
+          },
+          {
+            "name": "age_group_50_64",
+            "dataType": "double",
+            "sourceColumn": "age_group_50_64"
+          },
+          {
+            "name": "age_group_65_79",
+            "dataType": "double",
+            "sourceColumn": "age_group_65_79"
+          },
+          {
+            "name": "age_group_80_MAX",
+            "dataType": "double",
+            "sourceColumn": "age_group_80_MAX"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/LAPTOP-SL0928KI;CovidReport\",",
+                "    dbo_Population = Source{[Schema=\"dbo\",Item=\"Population\"]}[Data]",
+                "in",
+                "    dbo_Population"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "WeeklyHospitalAdmissions",
+        "columns": [
+          {
+            "name": "country",
+            "dataType": "string",
+            "sourceColumn": "country"
+          },
+          {
+            "name": "country_code_2_digit",
+            "dataType": "string",
+            "sourceColumn": "country_code_2_digit"
+          },
+          {
+            "name": "country_code_3_digit",
+            "dataType": "string",
+            "sourceColumn": "country_code_3_digit"
+          },
+          {
+            "name": "population",
+            "dataType": "int64",
+            "sourceColumn": "population"
+          },
+          {
+            "name": "source",
+            "dataType": "string",
+            "sourceColumn": "source"
+          },
+          {
+            "name": "reported_year_week",
+            "dataType": "string",
+            "sourceColumn": "reported_year_week"
+          },
+          {
+            "name": "start_week_date",
+            "dataType": "dateTime",
+            "sourceColumn": "start_week_date"
+          },
+          {
+            "name": "end_week_date",
+            "dataType": "dateTime",
+            "sourceColumn": "end_week_date"
+          },
+          {
+            "name": "new_icu_occupancy_count",
+            "dataType": "double",
+            "sourceColumn": "new_icu_occupancy_count"
+          },
+          {
+            "name": "new_hospital_occupancy_count",
+            "dataType": "double",
+            "sourceColumn": "new_hospital_occupancy_count"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/LAPTOP-SL0928KI;CovidReport\",",
+                "    dbo_WeeklyHospitalAdmissions = Source{[Schema=\"dbo\",Item=\"WeeklyHospitalAdmissions\"]}[Data]",
+                "in",
+                "    dbo_WeeklyHospitalAdmissions"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "600"
+      }
+    ]
+  }
+}

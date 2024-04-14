@@ -1,0 +1,8 @@
+C:\Users\Luigi\Documents\Python Data Engineering\CovidReport - Tabular Model\CovidReport\bin\Model.asdatabase
+C:\Users\Luigi\Documents\Python Data Engineering\CovidReport - Tabular Model\CovidReport\bin\Model.deploymenttargets
+C:\Users\Luigi\Documents\Python Data Engineering\CovidReport - Tabular Model\CovidReport\bin\Model.deploymentoptions
+C:\Users\Luigi\Documents\Python Data Engineering\CovidReport - Tabular Model\CovidReport\obj\Development\CovidReport.smproj.AssemblyReference.cache
+C:\Users\Luigi\Documents\Python Data Engineering\CovidReport - Tabular Model\CovidReport\obj\Development\CovidReport.smproj.CoreCompileInputs.cache
+C:\Users\Luigi\Documents\Python Data Engineering\CovidReport - Tabular Model\CovidReport\obj\Development\Model.asdatabase
+C:\Users\Luigi\Documents\Python Data Engineering\CovidReport - Tabular Model\CovidReport\obj\Development\Model.deploymentoptions
+C:\Users\Luigi\Documents\Python Data Engineering\CovidReport - Tabular Model\CovidReport\obj\Development\Model.deploymenttargets
